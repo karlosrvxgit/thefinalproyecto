@@ -39,8 +39,9 @@ export default function NavBar() {
   async function handleUpdateLocation() {
     try {
       setLoading(true); // Inicia la carga
+      
 
-      // Obtén la geolocalización del usuario
+      // Se obtiene la geolocalización del usuario
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(async (position) => {
           const lat = position.coords.latitude;
@@ -163,7 +164,8 @@ export default function NavBar() {
               <span className="today">
                 <span>Today</span>
                 <span>.</span>
-                <span>{moment.unix(data.dt).format("LL")}</span>
+                
+                <span>{moment.unix(data.dt).format("ddd, D MMM")}</span>
               </span>
               <span id="cityname">
                 <div>
@@ -177,8 +179,11 @@ export default function NavBar() {
                   <div id="windmain1">
                     <div id="windmain">
                       <h5 id="status">Wind status</h5>
+                      <div>
+                        <span id="seven">{Math.floor(data.wind.speed)}</span>
+                        <span>  mph</span>
+                      </div>
 
-                      <span id="seven">{data.wind.speed}mph</span>
                       <div id="aguja">
                         <div
                           id="agujax"
@@ -242,7 +247,11 @@ export default function NavBar() {
                 <div id="humiditymain">
                   <div id="humidity1">
                     <h5 id="status">Humidity</h5>
-                    <span id="seven">{data.main.humidity}%</span>
+                    <div>
+                      <span id="seven">{data.main.humidity}</span>
+                      <span>  %</span>
+                    </div>
+
                     <div id="aguja">
                       <div id="barra-container1">
                         <div id="barra">
@@ -253,7 +262,7 @@ export default function NavBar() {
                             50
                           </div>
                           <div className="barra-label" id="barra-label-100">
-                            100%
+                            100   %
                           </div>
                           <div
                             id="barra-fill"
@@ -268,14 +277,21 @@ export default function NavBar() {
                 <div id="visibilitymain">
                   <div id="visibility1">
                     <h5 id="status">Visibility</h5>
-                    <span id="seven">{data.visibility} miles</span>
+                    <div>
+                    <span id="seven">{data.visibility}</span>
+                    <span>  miles</span>
+                    </div>
                   </div>
                 </div>
 
                 <div id="pressuremain">
                   <div id="pressuremain1">
                     <h5 id="status">Air Pressure</h5>
-                    <span id="seven">{data.main.pressure} mb</span>
+                    <div>
+                    <span id="seven">{data.main.pressure}</span>
+                    <span>  mb</span>
+                    </div>
+                    
                   </div>
                 </div>
 
@@ -311,24 +327,16 @@ export default function NavBar() {
 
         <div id="maincard">
           {forecast.slice(0, 5).map((item, index) => {
-            const firstForecastDate = moment.unix(forecast[0].dt);  // Obtener la fecha del primer día del pronóstico
-            const nextDate = firstForecastDate.clone().add(index, 'days');  // Calcular la fecha para el día actual del pronóstico
-
-            // const currentDate = moment.unix(item.dt);
-            // const daysToAdd = index === 0 ? 1 : index;
-            // const nextDate = currentDate.clone().add(daysToAdd, "days");
+            const firstForecastDate = moment.unix(forecast[0].dt); // Obtener la fecha del primer día del pronóstico
+            const nextDate = firstForecastDate.clone().add(index+1, "days"); // Calcular la fecha para el día actual del pronóstico
 
             return (
               <div key={item.dt} id="card">
                 <div id="containerC">
                   <h3 id="tomorrow">
-                  {index === 0
-              ? `Tomorrow`
-              // ? `Tomorrow: ${nextDate.format('ddd, D MMM')}`
-              // : nextDate.format("")}
-              : nextDate.format('ddd, D MMM')}
-                    {/* {nextDate.format("ddd, D MMM")} */}
-                    {/* {moment.unix(item.dt).add(index+1, "days").format("ddd, D MMM")} */}
+                    {index === 0
+                      ? `Tomorrow`
+                      : nextDate.format("ddd, D MMM")}
                   </h3>
                   <div id="clear2img"></div>
 

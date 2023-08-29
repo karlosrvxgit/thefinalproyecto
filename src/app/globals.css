@@ -35,14 +35,14 @@
   border-radius: 10px;
   background-color: #ddd; /* Color de fondo de la barra */
   height: 7px;
-  width: 200px; /* Anchura inicial de la barra */
+  width: 229px; /* Anchura inicial de la barra */
   position: relative;
   z-index: 2;
   margin-top: -1px;
 }
 
 #barra-fill {
-  background-color: #2196F3; /* Color de relleno de la barra */
+  background-color: #FFEC65; /* Color de relleno de la barra */
   height: 100%;
   width: calc(var(--humidity) * 1%); /* Ancho dinámico según el valor de humedad */
   position: relative;
@@ -61,25 +61,29 @@
 
 #barra-label-100 {
   right: 0;
+  color: #A09FB1;
+
 }
 
 #barra-label-50 {
   left: 50%;
   transform: translateX(-50%);
+  color: #A09FB1;
 }
 
 #barra-label-0 {
   left: 0;
+  color: #A09FB1;
 }
 
-#barra > p {
+/* #barra > p {
   color: red;
   display: flex;
   justify-content: left;
   text-align:left;
   flex-direction: column;
 
-}
+} */
 
 #inputmain {
   justify-content: center;
@@ -312,13 +316,12 @@
 }
 
 #seven {
-  font-family: Raleway sans-serif;
-  font-size: 36px;
-  font-weight: 500;
-  line-height: 42px;
-  letter-spacing: 0em;
-  width: 113px;
-  color: #E7E7EB;
+font-family: Raleway;
+font-size: 36px;
+font-weight: 500;
+line-height: 42px;
+letter-spacing: 0em;
+text-align: center;
 }
 
 #aguja {
@@ -562,9 +565,6 @@
   margin-left: 90px;
   position: fixed;
   position: absolute;
-   
-  
- 
 }
 
 .clouds2 {
@@ -748,7 +748,3 @@ li {
 #cityname {
   display: flex;
 }
-
-
-
-

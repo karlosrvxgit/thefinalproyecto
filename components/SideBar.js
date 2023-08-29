@@ -11,19 +11,9 @@ export default function SideBar(props) {
     // Las tres ciudades iniciales visibles
   ];
 
-  const allCities = [
-    "London",
-    "New York",
-    "Tokyo",
-    "Paris",
-    "Sydney",
-    "Lima",
-   
-  ];
-
   const [selectedCity, setSelectedCity] = useState(initialCities[0]);
   const [showCitiesDropdown, setShowCitiesDropdown] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");//para ingresar dede input (1)
+  const [searchQuery, setSearchQuery] = useState("");//para ingresar dede input
 
 
   const handleCitySelect = (city) => {
@@ -36,6 +26,7 @@ export default function SideBar(props) {
   const handleSearchClick = () => {
     props.handleSearch(selectedCity);
     props.fun(); // Cerrar la barra lateral
+    setSelectedCity(""); // Limpiar el input después de la búsqueda...a1
     
   };
 
@@ -77,7 +68,8 @@ export default function SideBar(props) {
                     placeholder="Search for places"
                     id="input2"
                     type="text"
-                    value={selectedCity}
+                    value={searchQuery} // Usar el valor de búsqueda en lugar de selectedCity
+                    // value={selectedCity}
                     onChange={handleSearchInputChange}
                   />
                 </form>
