@@ -39,7 +39,6 @@ export default function NavBar() {
   async function handleUpdateLocation() {
     try {
       setLoading(true); // Inicia la carga
-      
 
       // Se obtiene la geolocalización del usuario
       if (navigator.geolocation) {
@@ -164,7 +163,7 @@ export default function NavBar() {
               <span className="today">
                 <span>Today</span>
                 <span>.</span>
-                
+
                 <span>{moment.unix(data.dt).format("ddd, D MMM")}</span>
               </span>
               <span id="cityname">
@@ -181,7 +180,7 @@ export default function NavBar() {
                       <h5 id="status">Wind status</h5>
                       <div>
                         <span id="seven">{Math.floor(data.wind.speed)}</span>
-                        <span>  mph</span>
+                        <span> mph</span>
                       </div>
 
                       <div id="aguja">
@@ -249,7 +248,7 @@ export default function NavBar() {
                     <h5 id="status">Humidity</h5>
                     <div>
                       <span id="seven">{data.main.humidity}</span>
-                      <span>  %</span>
+                      <span> %</span>
                     </div>
 
                     <div id="aguja">
@@ -262,7 +261,7 @@ export default function NavBar() {
                             50
                           </div>
                           <div className="barra-label" id="barra-label-100">
-                            100   %
+                            100 %
                           </div>
                           <div
                             id="barra-fill"
@@ -278,8 +277,8 @@ export default function NavBar() {
                   <div id="visibility1">
                     <h5 id="status">Visibility</h5>
                     <div>
-                    <span id="seven">{data.visibility}</span>
-                    <span>  miles</span>
+                      <span id="seven">{data.visibility}</span>
+                      <span> miles</span>
                     </div>
                   </div>
                 </div>
@@ -288,10 +287,9 @@ export default function NavBar() {
                   <div id="pressuremain1">
                     <h5 id="status">Air Pressure</h5>
                     <div>
-                    <span id="seven">{data.main.pressure}</span>
-                    <span>  mb</span>
+                      <span id="seven">{data.main.pressure}</span>
+                      <span> mb</span>
                     </div>
-                    
                   </div>
                 </div>
 
@@ -328,15 +326,13 @@ export default function NavBar() {
         <div id="maincard">
           {forecast.slice(0, 5).map((item, index) => {
             const firstForecastDate = moment.unix(forecast[0].dt); // Obtener la fecha del primer día del pronóstico
-            const nextDate = firstForecastDate.clone().add(index+1, "days"); // Calcular la fecha para el día actual del pronóstico
+            const nextDate = firstForecastDate.clone().add(index, "days"); // Calcular la fecha para el día actual del pronóstico
 
             return (
               <div key={item.dt} id="card">
                 <div id="containerC">
                   <h3 id="tomorrow">
-                    {index === 0
-                      ? `Tomorrow`
-                      : nextDate.format("ddd, D MMM")}
+                    {index === 0 ? `Tomorrow` : nextDate.format("ddd, D MMM")}
                   </h3>
                   <div id="clear2img"></div>
 
