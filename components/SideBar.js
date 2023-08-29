@@ -1,33 +1,28 @@
 import React, { useState } from "react";
-import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
-import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import "/src/App.css";
 
 export default function SideBar(props) {
   const initialCities = [
     "London",
     "Barcelona",
     "Long Beach",
-    
     // Las tres ciudades iniciales visibles
   ];
 
   const [selectedCity, setSelectedCity] = useState(initialCities[0]);
   const [showCitiesDropdown, setShowCitiesDropdown] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");//para ingresar dede input
-
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleCitySelect = (city) => {
     setSelectedCity(city);
     setShowCitiesDropdown(false);
-    setSearchQuery(city); // actualiza
-    
+    setSearchQuery(city);
   };
 
   const handleSearchClick = () => {
     props.handleSearch(selectedCity);
-    props.fun(); // Cerrar la barra lateral
-    setSelectedCity(""); // Limpiar el input después de la búsqueda...a1
-    
+    props.fun();
+    setSelectedCity("");
   };
 
   const toggleCitiesDropdown = () => {
@@ -36,16 +31,16 @@ export default function SideBar(props) {
 
   const handleSearchInputChange = (event) => {
     if (!showCitiesDropdown) {
-    setSearchQuery(event.target.value);
-    setSelectedCity(event.target.value);
+      setSearchQuery(event.target.value);
+      setSelectedCity(event.target.value);
     }
   };
 
-  const handleSearchSubmit = (event) => { 
+  const handleSearchSubmit = (event) => {
     event.preventDefault();
     if (searchQuery) {
       setSelectedCity(searchQuery);
-      setSearchQuery(""); // Limpiar el query de búsqueda después de realizar la búsqueda
+      setSearchQuery("");
       setShowCitiesDropdown(false);
     }
   };
@@ -63,16 +58,14 @@ export default function SideBar(props) {
                 <div id="mainsearch3">
                   <span className="material-symbols-outlined">search</span>
                   <form onSubmit={handleSearchSubmit}>
-
-                  <input
-                    placeholder="Search for places"
-                    id="input2"
-                    type="text"
-                    value={searchQuery} 
-                    onChange={handleSearchInputChange}
-                  />
-                </form>
-
+                    <input
+                      placeholder="Search for places"
+                      id="input2"
+                      type="text"
+                      value={searchQuery}
+                      onChange={handleSearchInputChange}
+                    />
+                  </form>
                 </div>
                 <button id="search2" onClick={handleSearchClick}>
                   Search
@@ -80,29 +73,24 @@ export default function SideBar(props) {
               </div>
               <ul id="city-list">
                 {initialCities.map((city, i) => (
-                  <li
-                    key={i}
-                    onClick={() => handleCitySelect(city)}
-                  >
+                  <li key={i} onClick={() => handleCitySelect(city)}>
                     {city}
                     {i === 0 && (
-                      <ArrowDropDownIcon
+                      <span
                         className="city-dropdown-toggle"
                         onClick={toggleCitiesDropdown}
-                      />
+                      >
+                        &#9660;
+                      </span>
                     )}
                   </li>
                 ))}
-                {showCitiesDropdown && (
+                {showCitiesDropdown &&
                   allCities.map((city, i) => (
-                    <li
-                      key={i}
-                      onClick={() => handleCitySelect(city)}
-                    >
+                    <li key={i} onClick={() => handleCitySelect(city)}>
                       {city}
                     </li>
-                  ))
-                )}
+                  ))}
               </ul>
             </section>
           </div>
