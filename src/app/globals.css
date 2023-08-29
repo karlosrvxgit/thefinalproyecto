@@ -24,7 +24,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 5px; /* Ajusta el margen según tu diseño */
+  margin-top: 5px;
 }
 
 #barra {
@@ -76,14 +76,6 @@
   color: #A09FB1;
 }
 
-/* #barra > p {
-  color: red;
-  display: flex;
-  justify-content: left;
-  text-align:left;
-  flex-direction: column;
-
-} */
 
 #inputmain {
   justify-content: center;
@@ -415,7 +407,6 @@ text-align: center;
     border-radius: 50px;
     cursor: pointer;
     
-
 }
 
 #gradosF {
@@ -453,7 +444,6 @@ text-align: center;
     gap: 0.1rem;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     margin-top: 60px;
-    
     position: relative;
     z-index: 1;
   }

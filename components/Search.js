@@ -10,21 +10,6 @@ export default function Search() {
     const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
-//   const handleSearch = async () => {
-    
-//     const results = await searchPlaces(searchQuery);
-
-    
-//     setSearchResults(results);
-//   };
-
-//   const searchPlaces = async (query) => {
-
-//     return places.filter((place) =>
-//       place.toLowerCase().includes(query.toLowerCase())
-//     );
-//   };
-
   return (
     <div>
     <input id='inputmain'

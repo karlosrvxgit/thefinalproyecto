@@ -68,8 +68,7 @@ export default function SideBar(props) {
                     placeholder="Search for places"
                     id="input2"
                     type="text"
-                    value={searchQuery} // Usar el valor de búsqueda en lugar de selectedCity
-                    // value={selectedCity}
+                    value={searchQuery} 
                     onChange={handleSearchInputChange}
                   />
                 </form>
