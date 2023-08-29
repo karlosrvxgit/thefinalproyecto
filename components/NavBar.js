@@ -326,7 +326,7 @@ export default function NavBar() {
         <div id="maincard">
           {forecast.slice(0, 5).map((item, index) => {
             const firstForecastDate = moment.unix(forecast[0].dt); // Obtener la fecha del primer día del pronóstico
-            const nextDate = firstForecastDate.clone().add(index, "days"); // Calcular la fecha para el día actual del pronóstico
+            const nextDate = firstForecastDate.clone().add(index+1, "days"); // Calcular la fecha para el día actual del pronóstico
 
             return (
               <div key={item.dt} id="card">
